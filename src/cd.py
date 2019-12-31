@@ -6,10 +6,10 @@ class ChangeDirectory():
 
     # change the directory
     def change_dir(self):
-        if(lipy.get_argument()!=None):
-            os.chdir(lipy.get_argument())
+        if(lipy.get_argument()!=[]):
+            os.chdir(lipy.get_argument()[0])
         else:
-            os.chdir(lipy.dir_path)
+            print(os.getcwd().replace("\\","/"))
 
     # get current working directory
     def get_cwd(self):
@@ -20,7 +20,7 @@ class ChangeDirectory():
         lipy.command_line_shell = self.dir_pat + "/" + lipy.system_hostname + "$ "
 
 
-#Ccreate object
+#create object
 cd_ob = ChangeDirectory()
 
 

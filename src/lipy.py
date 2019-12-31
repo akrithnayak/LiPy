@@ -10,7 +10,6 @@ version: 0.1.1
 
 (Enter "exit" to quit the command line)
 
-Made with <3 by Hustlers!
 """
 
 class LiPy():
@@ -19,7 +18,7 @@ class LiPy():
                 self.objective_string = ob_string
 
         def shell(self):
-                # Get the directory path where the file is stored
+                # Get the directory path where the files are stored
                 self.dir_path = os.path.dirname(os.path.realpath(__file__).replace("\\","/"))
 
                 # Get System Hostname
@@ -55,6 +54,9 @@ class LiPy():
                                  print("Command not found!")
                         except ModuleNotFoundError:
                                 print("Command not found!")
+                        except FileNotFoundError:
+                                print("Command not found!")
+                        
 
         #function to get command
         def get_command(self):
@@ -63,11 +65,9 @@ class LiPy():
 
         #function to get argument
         def get_argument(self):
-                try:
-                        self.argument = self.command_arguments.split()[1]
-                        return self.argument
-                except:
-                        return None
+                self.argument = self.command_arguments.split()[1:]
+                return self.argument
+        
 
 
 if __name__ == "__main__":
